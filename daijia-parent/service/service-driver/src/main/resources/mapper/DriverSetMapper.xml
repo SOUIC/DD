@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+		PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+		"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<mapper namespace="com.atguigu.daijia.driver.mapper.DriverSetMapper">
+
+	<resultMap id="driverSetMap" type="com.atguigu.daijia.model.entity.driver.DriverSet">
+	</resultMap>
+
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="columns">
+		id,
+		driver_id,
+		service_status,
+		order_distance,
+		accept_distance,
+		is_auto_accept,
+		create_time,
+		update_time,
+		is_deleted
+	</sql>
+
+	<update id="updateServiceStatus" >
+		update driver_set set service_status = #{status} where driver_id= #{driverId}
+	</update>
+
+</mapper>
+
